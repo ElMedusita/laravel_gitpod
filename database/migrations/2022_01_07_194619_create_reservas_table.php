@@ -18,8 +18,8 @@ class CreateReservasTable extends Migration
             $table->string('nombre',50);
             $table->date('fecha_reserva');
             $table->time('hora_reserva');
-            $table->unsignedBigInteger('concierto_id');
-            $table->foreign('concierto_id')->references('id')->on('conciertos');
+            $table->integer('concierto_id');
+            $table->foreign('concierto_id')->references('id')->on('conciertos')->onDelete('cascade');
         });
     }
 

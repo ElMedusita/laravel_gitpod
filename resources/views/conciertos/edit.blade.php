@@ -5,7 +5,10 @@
     <form action="{{url('/conciertos/')}}/{{$concierto->id}}" method="post">
         @csrf
         @method("PUT")
-
+        <div class="form-group">
+            <label for="id">ID</label>
+            <input type="text" class="form-control" id="id" name="id" placeholder="id" value="{{$concierto->id}}" readonly>
+        </div>
         <div class="form-group">
             <label for="precio">Precio</label>
             <input type="text" class="form-control" id="precio" name="precio" placeholder="precio" value="{{$concierto->precio}}">

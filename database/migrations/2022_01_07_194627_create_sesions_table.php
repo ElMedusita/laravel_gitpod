@@ -15,10 +15,10 @@ class CreateSesionsTable extends Migration
     {
         Schema::create('sesions', function (Blueprint $table) {
             $table->id();
-            $table->unsignedBigInteger('concierto_id');
-            $table->foreign('concierto_id')->references('id')->on('conciertos');
-            $table->unsignedBigInteger('artista_id');
-            $table->foreign('artista_id')->references('id')->on('artistas');
+            $table->integer('concierto_id');
+            $table->foreign('concierto_id')->references('id')->on('conciertos')->onDelete('cascade');
+            $table->integer('artista_id');
+            $table->foreign('artista_id')->references('id')->on('artistas')->onDelete('cascade');
         });
     }
 

@@ -45,7 +45,19 @@ class ConciertoController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $validated = $request->validate([
+            'id'                => 'required',
+            'precio'            => 'required',
+            'fecha'             => 'required|date_format:d-m-Y',
+            'hora           '   => 'required|date_format:H:i',
+            'lugar'             => 'required',
+            'correo_contacto'   => 'required|email',
+            'web'               => 'required',
+        ]);
+
+        Concierto::create($request->all());
+
+        return redirect()->route('conciertos.index');
     }
 
     /**
@@ -74,13 +86,13 @@ class ConciertoController extends Controller
     public function update(Request $request, $id)
     {
         $validated = $request->validate([
-            'id',
-            'precio'        => 'required',
-            'fecha'            => 'required|date_format:d-m-Y',
-            'hora           '  => 'required|date_format:H:i',
-            'lugar'  => 'required',
-            'correo_contacto'  => 'required|email',
-            'web'  => 'required',
+            'id'                => 'required',
+            'precio'            => 'required',
+            'fecha'             => 'required|date_format:d-m-Y',
+            'hora           '   => 'required|date_format:H:i',
+            'lugar'             => 'required',
+            'correo_contacto'   => 'required|email',
+            'web'               => 'required',
         ]);
 
         $concierto = Concierto::find($id);

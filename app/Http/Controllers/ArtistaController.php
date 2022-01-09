@@ -51,7 +51,7 @@ class ArtistaController extends Controller
     public function store(Request $request)
     {
         $validated = $request->validate([
-            'id',
+            'id'                => 'required',
             'nombre'            => 'required',
             'email'             => 'required|email',
             'telefono'          => 'required',
@@ -97,7 +97,7 @@ class ArtistaController extends Controller
     public function update(Request $request, $id)
     {
         $validated = $request->validate([
-            'id',
+            'id'                => 'required',
             'nombre'            => 'required',
             'email'             => 'required|email',
             'telefono'          => 'required',

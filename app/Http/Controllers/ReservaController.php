@@ -30,7 +30,7 @@ class ReservaController extends Controller
     public function store(Request $request)
     {
         $validated = $request->validate([
-            'id',
+            'id'            => 'required',
             'nombre'        => 'required',
             'fecha_reserva' => 'required|date_format:d-m-Y|before:today',
             'hora_reserva'  => 'required|date_format:H:i',
@@ -54,7 +54,7 @@ class ReservaController extends Controller
     public function update(Request $request, $id)
     {
         $validated = $request->validate([
-            'id',
+            'id'            => 'required',
             'nombre'        => 'required',
             'fecha_reserva' => 'required|date_format:d-m-Y|before:today',
             'hora_reserva'  => 'required|date_format:H:i',

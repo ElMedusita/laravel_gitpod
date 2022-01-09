@@ -33,7 +33,8 @@
         <a href=" {{url('/')}}" class="btn btn-primary" padding="10px">Regreso</a>
         &nbsp;
         <a href=" {{url('/conciertos/pdf')}}" class="btn btn-primary" padding="10px">PDF</a>
-        
+        &nbsp;
+        <a href=" {{url('/conciertos/create')}}" class="btn btn-primary" padding="10px">Programar nueva sesión</a>
         <table id="tabla_conciertos" class="table table-striped table-bordered ">
             <thead>
                 <tr>
