@@ -26,9 +26,10 @@ class ArtistaController extends Controller
 
     public function pdf()
     {
-        $artistas = Artista::paginate();
+        $artistas = Artista::all();
 
         $pdf = PDF::loadView('artistas.pdf',['artistas'=>$artistas]);
+        set_time_limit(500);
         return $pdf->stream();
     }
 

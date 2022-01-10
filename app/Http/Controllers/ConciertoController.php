@@ -21,9 +21,10 @@ class ConciertoController extends Controller
 
     public function pdf()
     {
-        $conciertos = Concierto::paginate();
+        $conciertos = Concierto::all();
 
         $pdf = PDF::loadView('conciertos.pdf',['conciertos'=>$conciertos]);
+        set_time_limit(500);
         return $pdf->stream();
     }
 

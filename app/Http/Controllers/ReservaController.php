@@ -16,9 +16,10 @@ class ReservaController extends Controller
     
     public function pdf()
     {
-        $reservas = Reserva::paginate();
+        $reservas = Reserva::all();
 
         $pdf = PDF::loadView('reservas.pdf',['reservas'=>$reservas]);
+        set_time_limit(500);
         return $pdf->stream();
     }
 
