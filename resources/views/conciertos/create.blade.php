@@ -1,5 +1,14 @@
 @extends("layouts.app")
 @section("contenido")
+    @if ($errors->any())
+        <div class="alert alert-danger">
+            <ul>
+                @foreach ($errors->all() as $error)
+                    <li>{{ $error }}</li>
+                @endforeach
+            </ul>
+        </div>
+    @endif
     <h3>Nuevo concierto </h3>
     <form action="{{route('conciertos.store')}}" method="post">
         @csrf
@@ -13,7 +22,7 @@
         </div>
         <div class="form-group">
             <label for="fecha">Fecha</label>
-            <input type="text" class="form-control" id="fecha" name="fecha" placeholder="Fecha" >
+            <input type="date" class="form-control" id="fecha" name="fecha" placeholder="Fecha" >
         </div>
         <div class="form-group">
             <label for="hora">Hora</label>
@@ -24,8 +33,8 @@
             <input type="text" class="form-control" id="lugar" name="lugar" placeholder="Lugar" >
         </div>
         <div class="form-group">
-            <label for="correo_electronico">Correo electrónico</label>
-            <input type="text" class="form-control" id="correo_electronico" name="correo_electronico" placeholder="Correo electrónico" >
+            <label for="correo_contacto">Correo electrónico</label>
+            <input type="text" class="form-control" id="correo_contacto" name="correo_contacto" placeholder="Correo electrónico" >
         </div>
         <div class="form-group">
             <label for="web">Web</label>

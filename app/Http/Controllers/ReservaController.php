@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Reserva;
+use App\Models\Concierto;
 use PDF;
 
 class ReservaController extends Controller
@@ -25,7 +26,8 @@ class ReservaController extends Controller
 
     public function create()
     {
-        return view('reservas.create');
+        $conciertos = Concierto::all();
+        return view('reservas.create', compact('conciertos'));
     }
 
     public function store(Request $request)
@@ -33,7 +35,7 @@ class ReservaController extends Controller
         $validated = $request->validate([
             'id'            => 'required',
             'nombre'        => 'required',
-            'fecha_reserva' => 'required|date_format:d-m-Y|before:today',
+            'fecha_reserva' => 'required|date',
             'hora_reserva'  => 'required|date_format:H:i',
             'concierto_id'  => 'required',
         ]);
@@ -57,7 +59,7 @@ class ReservaController extends Controller
         $validated = $request->validate([
             'id'            => 'required',
             'nombre'        => 'required',
-            'fecha_reserva' => 'required|date_format:d-m-Y|before:today',
+            'fecha_reserva' => 'required|date',
             'hora_reserva'  => 'required|date_format:H:i',
             'concierto_id'  => 'required',
         ]);
@@ -68,9 +70,9 @@ class ReservaController extends Controller
         return redirect()->route('reservas.index');
     }
 
-    public function destroy(Reserva $reserva)
+    public function destroy($id)
     {
-        Reserva::find($reserva->id)->delete();
+        Reserva::find($id)->delete();
         return redirect()->route('reservas.index');
     }
 }

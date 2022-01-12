@@ -15,11 +15,9 @@ class ReservaFactory extends Factory
      */
     public function definition()
     {
-        $fecha=$this->faker->dateTimeBetween('-10 months', 'now');
-        $fecha2=$fecha->format('d-m-Y');
         return [
             'nombre'            =>$this->faker->name(),
-            'fecha_reserva'     =>$fecha2,
+            'fecha_reserva'     =>$this->faker->date(),
             'hora_reserva'      =>$this->faker->time($format = 'H:i'),
             'concierto_id'      =>Concierto::all()->random()->id,
         ];

@@ -14,7 +14,7 @@
         }
     </style>
 
-<script src='funciones.js'></script>
+
 
 <script>
 
@@ -85,8 +85,8 @@
                         <td>{{$artista->email}}</td>
                         <td>{{$artista->telefono}}</td>
                         <td>{{$artista->procedencia}}</td>
-                        <td>{{$artista->fecha_nacimiento}}</td>
-                        <td><!--$edad--></td>      
+                        <td>{{$artista->fecha_nacimiento->format('d/m/Y')}}</td>
+                        <td>{{$artista->fecha_nacimiento->age}}</td>      
                         <td><a href="{{url('/artistas')}}/{{$artista->id}}/edit"><img width="32px" src="https://img.icons8.com/cotton/2x/000000/edit.png"></a></td> 
 
                     </tr>

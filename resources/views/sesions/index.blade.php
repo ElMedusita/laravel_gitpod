@@ -42,7 +42,7 @@
                 @foreach($sesions as $sesion)
                     <tr>
                         <th>{{$sesion->concierto_id}}</td>
-                        <td>{{$sesion->artista_id}}</td>
+                        <td>{{$sesion->artista->nombre}}</td>
                     </tr>
                 @endforeach
             </tbody>

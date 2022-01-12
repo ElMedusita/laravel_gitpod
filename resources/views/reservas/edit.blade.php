@@ -1,6 +1,15 @@
 @extends("layouts.app")
 
 @section("contenido")
+    @if ($errors->any())
+        <div class="alert alert-danger">
+            <ul>
+                @foreach ($errors->all() as $error)
+                    <li>{{ $error }}</li>
+                @endforeach
+            </ul>
+        </div>
+    @endif
     <h3>Editar reserva </h3>
     <form action="{{url('/reservas/')}}/{{$reserva->id}}" method="post">
         @csrf
@@ -15,7 +24,7 @@
         </div>
         <div class="form-group">
             <label for="fecha_reserva">Fecha reserva</label>
-            <input type="text" class="form-control" id="fecha_reserva" name="fecha_reserva" placeholder="fecha_reserva" value="{{$reserva->fecha_reserva}}">
+            <input type="date" class="form-control" id="fecha_reserva" name="fecha_reserva" placeholder="fecha_reserva" value="{{$reserva->fecha_reserva}}">
         </div>
         <div class="form-group">
             <label for="hora_reserva">Hora Reserva</label>

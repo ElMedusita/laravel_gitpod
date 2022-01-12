@@ -1,10 +1,19 @@
 @extends("layouts.app")
 
 @section("contenido")
-    <h3>Editar artista </h3>
-    <form action="{{url('/artistas/')}}/{{$artista->id}}" method="post">
-        @csrf
-        @method("PUT")
+    @if ($errors->any())
+        <div class="alert alert-danger">
+            <ul>
+                @foreach ($errors->all() as $error)
+                    <li>{{ $error }}</li>
+                @endforeach
+            </ul>
+        </div>
+    @endif
+        <h3>Editar artista </h3>
+        <form action="{{url('/artistas/')}}/{{$artista->id}}" method="post">
+            @csrf
+            @method("PUT")
         <div class="form-group">
             <label for="id">ID</label>
             <input type="text" class="form-control" id="id" name="id" placeholder="id" value="{{$artista->id}}" readonly>

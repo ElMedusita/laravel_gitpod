@@ -22,16 +22,17 @@
             }
         });
 
-        $(".borrar").click(function(){
+        $(".borrar").click(function(e){
+            e.preventDefault();
             const tr=$(this).closest("tr");
             const id=tr.data("id");
             Swal.fire({
-                title: '¿seguro que quieres borrarlo?',
+                title: '¿Quieres borrarlo?',
                 showCancelButton: true,
-                confirmButtonText: 'Borrar',
+                confirmButtonText: 'Eliminar',
                 cancelButtonText: `Cancelar`,
             }).then((result) => {
-
+                console.log(result)
                 if (result.isConfirmed) {
                     $.ajax({
                         method: "POST",
@@ -78,14 +79,18 @@
             </thead>
             <tbody>
                 @foreach($reservas as $reserva)
-                    <tr>
+                    <tr data-id='{{$reserva->id}}'>
                         <td>{{$reserva->id}}</td>
                         <th>{{$reserva->nombre}}</td>
                         <td>{{$reserva->fecha_reserva}}</td>
                         <td>{{$reserva->hora_reserva}}</td>
                         <td>{{$reserva->concierto_id}}</td>
                         <td><a href="{{url('/reservas')}}/{{$reserva->id}}/edit"><img width="32px" src="https://img.icons8.com/cotton/2x/000000/edit.png"></a></td> 
-                        <td><a href="#" class='btn borrar'><img width="32px" src="https://www.pngrepo.com/png/190063/512/trash.png"></a></td>
+                        <td class="borrar"><form method="POST" action="{{url('/reservas')}}/{{$reserva->id}}">
+                                @csrf
+                                @method("delete")
+                                <input  type="image" width="32px" src="https://www.pngrepo.com/png/190063/512/trash.png">
+                        </form></td>
                     </tr>
                 @endforeach
             </tbody>

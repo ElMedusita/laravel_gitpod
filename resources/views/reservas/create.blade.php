@@ -1,7 +1,17 @@
 @extends("layouts.app")
 @section("contenido")
+    @if ($errors->any())
+        <div class="alert alert-danger">
+            <ul>
+                @foreach ($errors->all() as $error)
+                    <li>{{ $error }}</li>
+                @endforeach
+            </ul>
+        </div>
+    @endif
+
     <h3>Nueva reserva </h3>
-    <form action="{{route('artistas.store')}}" method="post">
+    <form action="{{route('reservas.store')}}" method="post">
         @csrf
         <div class="form-group">
             <label for="id">ID</label>
@@ -13,15 +23,24 @@
         </div>
         <div class="form-group">
             <label for="fecha_reserva">Fecha Reserva</label>
-            <input type="text" class="form-control" id="fecha_reserva" name="fecha_reserva" placeholder="Fecha Reserva" >
+            <input type="date" class="form-control" id="fecha_reserva" name="fecha_reserva" placeholder="Fecha Reserva" >
         </div>
         <div class="form-group">
             <label for="hora_reserva">Hora Reserva</label>
             <input type="text" class="form-control" id="hora_reserva" name="hora_reserva" placeholder="Hora Reserva" >
         </div>
         <div class="form-group">
-            <label for="codigo_concierto">Sesión</label>
-            <input type="text" class="form-control" id="codigo_concierto" name="codigo_concierto" placeholder="Código concierto" >
+        
+            <label>Sesión de concierto</label>
+            <select  class="form-control" name='concierto_id'>
+     
+                @foreach ($conciertos as $concierto)
+                    <option value='{{$concierto->id}}'>{{$concierto->id}}</option>
+                @endforeach
+            </select>
+            {!! $errors->first('concierto_id', '<div class="invalid-feedback">:message</p>') !!}
+
+        
         </div>
         
         <button type="submit" class="btn btn-primary">Guardar</button>

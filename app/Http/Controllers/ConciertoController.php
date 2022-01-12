@@ -49,8 +49,8 @@ class ConciertoController extends Controller
         $validated = $request->validate([
             'id'                => 'required',
             'precio'            => 'required',
-            'fecha'             => 'required|date_format:d-m-Y',
-            'hora           '   => 'required|date_format:H:i',
+            'fecha'             => 'required|date',
+            'hora'              => 'required|date_format:H:i',
             'lugar'             => 'required',
             'correo_contacto'   => 'required|email',
             'web'               => 'required',
@@ -89,8 +89,8 @@ class ConciertoController extends Controller
         $validated = $request->validate([
             'id'                => 'required',
             'precio'            => 'required',
-            'fecha'             => 'required|date_format:d-m-Y',
-            'hora           '   => 'required|date_format:H:i',
+            'fecha'             => 'required|date',
+            'hora'              => 'required|date_format:H:i',
             'lugar'             => 'required',
             'correo_contacto'   => 'required|email',
             'web'               => 'required',

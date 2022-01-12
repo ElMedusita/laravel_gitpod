@@ -11,6 +11,10 @@ class Artista extends Model
     public $timestamps = false;
     protected $guarded = ['id'];
 
+    protected $casts = [
+        'fecha_nacimiento' => 'datetime:Y-m-d',
+    ];
+
     public function conciertos()
     {
         return $this->belongsTo(Concierto::class);

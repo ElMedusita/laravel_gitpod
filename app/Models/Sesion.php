@@ -10,4 +10,10 @@ class Sesion extends Model
     use HasFactory;
     public $timestamps = false;
     protected $guarded = ['id'];
+
+    public function artista()
+    {
+        return $this-> belongsTo(Artista::class);
+    }
+
 }
