@@ -16,4 +16,9 @@ class Sesion extends Model
         return $this-> belongsTo(Artista::class);
     }
 
+    public function concierto()
+    {
+        return $this-> belongsTo(Concierto::class);
+    }
+
 }

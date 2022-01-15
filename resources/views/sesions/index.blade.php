@@ -29,10 +29,13 @@
 <body>
     <h1 id="titulo"> Registro de festejos</h1>
     @if(count($sesions)>0)
-        <a href=" {{url('/')}}" class="btn btn-primary" padding="10px">Regreso</a>
+    <a href=" {{url('/')}}" class="btn btn-secondary" padding="10px">Regreso</a>
+        &nbsp;
+        <a href=" {{url('/sesions/pdf')}}" class="btn btn-outline-info float-right" padding="10px">Generar documento PDF</a>
         <table id="tabla_sesions" class="table table-striped table-bordered ">
             <thead>
                 <tr>
+                    <th>ID concierto</th>
                     <th>Sesión</th>
                     <th>Artista invitado</th>
 
@@ -41,7 +44,8 @@
             <tbody>
                 @foreach($sesions as $sesion)
                     <tr>
-                        <th>{{$sesion->concierto_id}}</td>
+                        <th>{{$sesion->concierto->id}}</td>
+                        <th>{{$sesion->concierto->lugar}} - {{$sesion->concierto->fecha->format('d/m/Y')}}</td>
                         <td>{{$sesion->artista->nombre}}</td>
                     </tr>
                 @endforeach

@@ -10,8 +10,11 @@ class Reserva extends Model
     use HasFactory;
     public $timestamps = false;
     protected $guarded = ['id'];
+    protected $casts = [
+        'fecha_reserva' => 'datetime:Y-m-d',
+    ];
 
-    public function conciertos()
+    public function concierto()
     {
         return $this->belongsTo(Concierto::class);
     }

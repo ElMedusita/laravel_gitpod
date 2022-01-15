@@ -5,7 +5,6 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\Artista;
 use PDF;
-use Carbon\Carbon;
 
 class ArtistaController extends Controller
 {
@@ -18,10 +17,6 @@ class ArtistaController extends Controller
     {
         $artistas = Artista::all();
         return view('artistas.index', compact('artistas'));
-
-        $edad = \Carbon\Carbon::parse($artista->fecha_nacimiento)->age;
-        return $edad;
-
     }
 
     public function pdf()
@@ -57,7 +52,7 @@ class ArtistaController extends Controller
             'email'             => 'required|email',
             'telefono'          => 'required',
             'procedencia'       => 'required',
-            'fecha_nacimiento'  => 'required|date_format:d-m-Y|before:10-10-2010',
+            'fecha_nacimiento'  => 'required|date',
         ]);
 
         Artista::create($request->all());
@@ -103,7 +98,7 @@ class ArtistaController extends Controller
             'email'             => 'required|email',
             'telefono'          => 'required',
             'procedencia'       => 'required',
-            'fecha_nacimiento'  => 'required|date-format:d-m-Y|before:10-10-2010',
+            'fecha_nacimiento'  => 'required|date',
         ]);
 
         $artista = Artista::find($id);
@@ -118,9 +113,9 @@ class ArtistaController extends Controller
      * @param  \App\Models\Artista  $artista
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Artista $artista)
+    public function destroy($id)
     {
-        Artista::find($artista->id)->delete();
+        Artista::find($id)->delete();
         return redirect()->route('artistas.index');
     }
 }

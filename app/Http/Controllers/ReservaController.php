@@ -41,6 +41,7 @@ class ReservaController extends Controller
         ]);
 
         Reserva::create($request->all());
+        return redirect()->route('reservas.index');
     }
 
     public function show($id)
@@ -51,8 +52,10 @@ class ReservaController extends Controller
     public function edit($id)
     {
         $reserva = Reserva::find($id);
-        return view('reservas.edit', compact('reserva'));
+        $conciertos = Concierto::all();
+        return view('reservas.edit', compact('reserva', 'conciertos'));
     }
+    
 
     public function update(Request $request, $id)
     {

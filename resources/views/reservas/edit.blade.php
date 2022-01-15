@@ -31,8 +31,17 @@
             <input type="text" class="form-control" id="hora_reserva" name="hora_reserva" placeholder="hora_reserva" value="{{$reserva->hora_reserva}}">
         </div>
         <div class="form-group">
-            <label for="concierto_id">Sesión</label>
-            <input type="text" class="form-control" id="concierto_id" name="concierto_id" placeholder="concierto_id" value="{{$reserva->concierto_id}}">
+        
+            <label>ID concierto</label>
+            <select  class="form-control" name='concierto_id'>
+     
+                @foreach ($conciertos as $concierto)
+                    <option value='{{$concierto->id}}'>{{$concierto->id}}</option>
+                @endforeach
+            </select>
+            {!! $errors->first('concierto_id', '<div class="invalid-feedback">:message</p>') !!}
+
+        
         </div>
         <button type="submit" class="btn btn-primary">Guardar</button>
         <a href="{{url('/reservas')}}" class="btn btn-secondary">Cancelar</a>

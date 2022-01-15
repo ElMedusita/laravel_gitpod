@@ -17,12 +17,8 @@
     <script src="https://cdn.datatables.net/1.11.3/js/dataTables.bootstrap4.min.js"></script>
 
     <style>
-        body {
-            background-color: #FCF8F0;
-            border: 4px solid red;
-            margin: 40px;
-            padding: 40px;
-            border-radius: 20px
+        h2 {
+            color: white;
     }
     </style>
   

@@ -34,7 +34,7 @@
         </div>
         <div class="form-group">
             <label for="fecha_nacimiento">Fecha Nacimiento</label>
-            <input type="text" class="form-control" id="fecha_nacimiento" name="fecha_nacimiento" placeholder="Fecha nacimiento" >
+            <input type="date" class="form-control" id="fecha_nacimiento" name="fecha_nacimiento" placeholder="Fecha nacimiento" >
         </div>
         <button type="submit" class="btn btn-primary">Guardar</button>
         <a href="{{url('/artistas')}}" class="btn btn-secondary">Volver</a>

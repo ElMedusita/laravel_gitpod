@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Sesion;
+use PDF;
 
 class SesionController extends Controller
 {
@@ -16,6 +17,14 @@ class SesionController extends Controller
     {
         $sesions = Sesion::all();
         return view('sesions.index', compact('sesions'));
+    }
+    public function pdf()
+    {
+        $sesions = Sesion::all();
+
+        $pdf = PDF::loadView('sesions.pdf',['sesions'=>$sesions]);
+        set_time_limit(500);
+        return $pdf->stream();
     }
 
     /** 

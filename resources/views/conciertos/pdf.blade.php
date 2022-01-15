@@ -1,4 +1,4 @@
-@extends("layouts.app")
+@extends("layouts.pdf")
 
 
 @section("contenido")
@@ -14,10 +14,12 @@
         }
     </style>
 
-<h2 id="titulot"> Tabla de sesiones</h2>
+
+<h1 id="titulot">Conciertos invitados</h1>
         <table id="tabla_conciertos" class="table table-striped table-bordered ">
             <thead>
                 <tr>
+                    <th>ID</th>
                     <th>Sesión</th>
                     <th>Precio</th>
                     <th>Fecha</th>
@@ -31,8 +33,9 @@
                 @foreach($conciertos as $concierto)
                     <tr>
                         <td>{{$concierto->id}}</td>
+                        <td>{{$concierto->lugar}} - {{$concierto->fecha->format('d/m/Y')}}</td>
                         <th>{{$concierto->precio}}€</td>
-                        <td>{{$concierto->fecha}}</td>
+                        <td>{{$concierto->fecha->format('d/m/Y')}}</td>
                         <td>{{$concierto->hora}}</td>
                         <td>{{$concierto->lugar}}</td>
                         <td>{{$concierto->correo_contacto}}</td>

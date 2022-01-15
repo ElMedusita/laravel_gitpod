@@ -25,6 +25,7 @@ Route::get('/', function () {
 Route::get('reservas/pdf', [App\Http\Controllers\ReservaController::class, 'pdf'] )->name('reservas.pdf');
 Route::get('artistas/pdf', [App\Http\Controllers\ArtistaController::class, 'pdf'] )->name('artistas.pdf');
 Route::get('conciertos/pdf', [App\Http\Controllers\ConciertoController::class, 'pdf'] )->name('conciertos.pdf');
+Route::get('sesions/pdf', [App\Http\Controllers\SesionController::class, 'pdf'] )->name('sesions.pdf');
 
 
 Route::resource('/artistas', ArtistaController::class);

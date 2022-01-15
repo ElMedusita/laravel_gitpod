@@ -10,7 +10,7 @@
         </div>
     @endif
 
-    <h3>Nueva reserva </h3>
+    <h3>Registrar reserva existente al sistema</h3>
     <form action="{{route('reservas.store')}}" method="post">
         @csrf
         <div class="form-group">
@@ -27,11 +27,11 @@
         </div>
         <div class="form-group">
             <label for="hora_reserva">Hora Reserva</label>
-            <input type="text" class="form-control" id="hora_reserva" name="hora_reserva" placeholder="Hora Reserva" >
+            <input type="time" class="form-control" id="hora_reserva" name="hora_reserva" placeholder="Hora Reserva" >
         </div>
         <div class="form-group">
         
-            <label>Sesión de concierto</label>
+            <label>ID concierto</label>
             <select  class="form-control" name='concierto_id'>
      
                 @foreach ($conciertos as $concierto)

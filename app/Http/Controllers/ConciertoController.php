@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use App\Models\Concierto;
 use PDF;
 
+
 class ConciertoController extends Controller
 {
     /**
@@ -108,8 +109,9 @@ class ConciertoController extends Controller
      * @param  \App\Models\Concierto  $concierto
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Concierto $concierto)
+    public function destroy($id)
     {
-        //
+        Concierto::find($id)->delete();
+        return redirect()->route('conciertos.index');
     }
 }

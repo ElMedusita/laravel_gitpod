@@ -15,11 +15,11 @@ class ArtistaFactory extends Factory
     public function definition()
     {
         return [
-            'nombre'            =>$this->faker->firstname(),
+            'nombre'            =>$this->faker->name(),
             'email'             =>$this->faker->email(),
             'telefono'          =>$this->faker->phoneNumber(),
             'procedencia'       =>$this->faker->state(),
-            'fecha_nacimiento'  =>$this->faker->date($format = 'd-m-Y', $max = '10-10-2004'), //el artista más joven habrá nacido el 10-10-2010 
+            'fecha_nacimiento'  =>$this->faker->dateTimeBetween('-65 years', '-18 years'), //el artista más joven habrá nacido el 10-10-2010 
         ];
     }
 }
