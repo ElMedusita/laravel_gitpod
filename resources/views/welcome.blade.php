@@ -10,6 +10,15 @@
         margin: 0;
         height: 100vh;
     }
+    .chachi {
+        position:absolute;
+        left:38%;
+        top:95%;
+        bottom:30%;
+        width:60%;
+        height:10%;
+        text-align:right;
+    }
 </style>
 <div class="text-center">
     <h2 class="text-3xl font-extrabold leading-9 text-gray-900 dark:text-white">
@@ -37,6 +46,13 @@
             </div>
         </div>
     </div>
+</div>
+
+
+<div class="chachi">
+  <div class="btn-holder">
+    <a href="https://lastfm.freetls.fastly.net/i/u/770x0/32be2c9293c44a17b4c75d11e0bcf87b.jpg">Hey</a>
+  </div>
 </div>
 
 @endsection
