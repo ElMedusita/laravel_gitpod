@@ -9,6 +9,10 @@ use PDF;
 
 class ReservaController extends Controller
 {
+    public function __construct()
+    {
+        $this->middleware('auth');
+    }
     public function index()
     {
         $reservas = Reserva::all();

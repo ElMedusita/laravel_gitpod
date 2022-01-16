@@ -21,7 +21,7 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-
+Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 Route::get('reservas/pdf', [App\Http\Controllers\ReservaController::class, 'pdf'] )->name('reservas.pdf');
 Route::get('artistas/pdf', [App\Http\Controllers\ArtistaController::class, 'pdf'] )->name('artistas.pdf');
 Route::get('conciertos/pdf', [App\Http\Controllers\ConciertoController::class, 'pdf'] )->name('conciertos.pdf');
@@ -35,5 +35,3 @@ Route::resource('/sesions', SesionController::class);
 
 
 Auth::routes();
-
-Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
