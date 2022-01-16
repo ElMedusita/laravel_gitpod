@@ -15,7 +15,7 @@ class Artista extends Model
         'fecha_nacimiento' => 'datetime:Y-m-d',
     ];
 
-    public function conciertos()
+    public function concierto()
     {
         return $this->belongsTo(Concierto::class);
     }

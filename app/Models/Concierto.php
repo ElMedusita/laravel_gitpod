@@ -15,12 +15,12 @@ class Concierto extends Model
     protected $casts = [
         'fecha' => 'datetime:Y-m-d',
     ];
-    public function artistas()
+    public function artista()
     {
         return $this-> belongsTo(Artista::class);
     }
 
-public function reservas()
+public function reserva()
     {
         return $this->hasMany(Reserva::class);
     }

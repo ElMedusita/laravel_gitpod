@@ -33,3 +33,7 @@ Route::resource('/conciertos', ConciertoController::class);
 Route::resource('/reservas', ReservaController::class);
 Route::resource('/sesions', SesionController::class);
 
+
+Auth::routes();
+
+Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');

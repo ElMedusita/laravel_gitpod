@@ -58,7 +58,7 @@
 <body>
     <h1 id="titulot"> Tabla de las reservas</h1>
     @if(count($reservas)>0)
-    <a href=" {{url('/')}}" class="btn btn-secondary" padding="10px">Regreso</a>
+    <a href=" {{url('/home')}}" class="btn btn-secondary" padding="10px">Regreso</a>
         &nbsp;
         <a href=" {{url('/reservas/pdf')}}" class="btn btn-outline-info float-right" padding="10px">Generar documento PDF</a>
         &nbsp;
@@ -84,7 +84,7 @@
                         <th>{{$reserva->nombre}}</td>
                         <td>{{$reserva->fecha_reserva->format('d/m/Y')}}</td>
                         <td>{{$reserva->hora_reserva}}</td>
-                        <td>{{$reserva->concierto_id}}</td>
+                        <th>{{$reserva->concierto->lugar}} - {{$reserva->concierto->fecha->format('d/m/Y')}}</td>
                         <td><a href="{{url('/reservas')}}/{{$reserva->id}}/edit"><img width="32px" src="https://img.icons8.com/cotton/2x/000000/edit.png"></a></td> 
                         <td class="borrar"><form method="POST" action="{{url('/reservas')}}/{{$reserva->id}}">
                                 @csrf

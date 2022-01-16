@@ -58,7 +58,7 @@
 <body>
     <h1 id="titulot"> Registro de conciertos</h1>
     @if(count($conciertos)>0)
-        <a href=" {{url('/')}}" class="btn btn-secondary" padding="10px">Regreso</a>
+        <a href=" {{url('/home')}}" class="btn btn-secondary" padding="10px">Regreso</a>
         &nbsp;
         <a href=" {{url('/conciertos/pdf')}}" class="btn btn-outline-info float-right" padding="10px">Generar documento PDF</a>
         &nbsp;
