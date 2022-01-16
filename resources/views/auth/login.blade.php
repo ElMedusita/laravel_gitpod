@@ -1,6 +1,15 @@
 @extends('layouts.app')
 
 @section('content')
+<style>
+    body {
+        background: url(https://s.libertaddigital.com/2020/05/15/1920/1080/fit/resurrection-fest-estrella-galicia-2018-kiss-toni-villen.jpg); 
+        background-size: cover;
+        background-repeat: no-repeat;
+        margin: 0;
+        height: 100vh;
+    }
+</style>
 <div class="container">
     <div class="row justify-content-center">
         <div class="col-md-8">
