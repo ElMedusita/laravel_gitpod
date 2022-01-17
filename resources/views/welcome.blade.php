@@ -19,6 +19,10 @@
         height:10%;
         text-align:right;
     }
+    .btn-holder a {
+        text-decoration: none;
+        color: black;
+    }
 </style>
 <div class="text-center">
     <h2 class="text-3xl font-extrabold leading-9 text-gray-900 dark:text-white">
