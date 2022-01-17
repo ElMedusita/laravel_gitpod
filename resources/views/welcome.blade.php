@@ -23,6 +23,9 @@
         text-decoration: none;
         color: black;
     }
+    h3 {
+        color: white;
+    }
 </style>
 <div class="text-center">
     <h2 class="text-3xl font-extrabold leading-9 text-gray-900 dark:text-white">
@@ -57,6 +60,10 @@
   <div class="btn-holder">
     <a href="https://lastfm.freetls.fastly.net/i/u/770x0/32be2c9293c44a17b4c75d11e0bcf87b.jpg">.</a>
   </div>
+</div>
+<div class="title m-b-md">
+    <h3>¡Comparte con tus amigos!</h3>
+   {!!QrCode::size(300)->generate("https://www.resurrectionfest.es/") !!}
 </div>
 
 @endsection
