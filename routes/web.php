@@ -5,6 +5,7 @@ use App\Http\Controllers\ArtistaController;
 use App\Http\Controllers\ReservaController;
 use App\Http\Controllers\ConciertoController;
 use App\Http\Controllers\SesionController;
+use App\Http\Controllers\MailController;
 
 /*
 |--------------------------------------------------------------------------
@@ -26,7 +27,7 @@ Route::get('reservas/pdf', [App\Http\Controllers\ReservaController::class, 'pdf'
 Route::get('artistas/pdf', [App\Http\Controllers\ArtistaController::class, 'pdf'] )->name('artistas.pdf');
 Route::get('conciertos/pdf', [App\Http\Controllers\ConciertoController::class, 'pdf'] )->name('conciertos.pdf');
 Route::get('sesions/pdf', [App\Http\Controllers\SesionController::class, 'pdf'] )->name('sesions.pdf');
-
+Route::get('/send-email', [MailController::class, 'sendEmail']);
 
 Route::resource('/artistas', ArtistaController::class);
 Route::resource('/conciertos', ConciertoController::class);
